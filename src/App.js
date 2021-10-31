@@ -9,7 +9,10 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Home from "./components/Home";
 import Profile from "./components/profile";
-import Posts from "./components/Posts"
+import Posts from "./components/Posts";
+import CreateBlog from "./components/Createblog";
+
+
 
 
 const App = () => {
@@ -90,6 +93,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/posts/new" component={CreateBlog} />
           <Route exact path="/posts/:id" component={Posts} />
         </Switch>
       </div>

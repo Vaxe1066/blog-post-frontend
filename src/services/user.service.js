@@ -13,7 +13,54 @@ const getPostContent = (id) => {
 }
 
 
+const postPostContent = (author, title, blog) => {
+    return axios.post(API_URL, {
+        author,
+        blog,
+        title,
+    })
+    .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+
+// get comments data 
+const getComments = (id) => {
+    return axios.get(API_URL+id+"/comments")
+}
+
+//create comments 
+const postComment = (id, comment, author) => {
+    return axios.post(API_URL+id+"/comments", {
+        comment,
+        author,
+    })
+    .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+
+//delete comment 
+
+const deleteComment = (id) => {
+    return axios.delete("http://localhost:5000/api/comments/"+id)
+}
+
+
+
 export default {
     getPublicContent,
     getPostContent,
+    postPostContent,
+    getComments,
+    postComment,
+    deleteComment
   };

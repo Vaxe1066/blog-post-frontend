@@ -30,3 +30,18 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+
+.comment-btn{
+  border: none;
+  background-color: white;
+}
+
+.comment-btn:hover{
+  background-color: rgba(168, 168, 243, 0.959);
+}
+
+.delete-btn{
+  height: 20px;
+  width: 20px;
+}

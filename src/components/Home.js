@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import UserService from "../services/user.service";
 
 const Home = () => {
-    const [allBlogs, setAllBlogs] = useState([]);
+  const [allBlogs, setAllBlogs] = useState([]);
+  const [postDate, setPostDate] = useState(undefined);
+
+  const changeDate = (dateStr) => {
+    return new Date(dateStr).toLocaleDateString();
+ 
+  }
 
   useEffect(() => {
     UserService.getPublicContent().then(
@@ -24,16 +30,19 @@ const Home = () => {
   return (
     <div className="container">
       <header className="jumbotron">
-      {allBlogs.map((item) => {
+
+      {allBlogs.length>0 ?
+        allBlogs.map((item) => {
           return(
             <div className="card" key={item._id}> 
               <a href={"/posts/"+item._id}><h3>{item.title}</h3></a> 
-              <p>{item.author} - {item.timestamp}</p>
-              
+              {item.author ? <p>{item.author.username} - {changeDate(item.timestamp)}</p>
+              : <p> - {changeDate(item.timestamp)}</p>}
             </div> 
 
           )
-        })}
+        }) : ""
+      }
       </header>
     </div>
   );
