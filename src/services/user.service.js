@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:5000/api/posts/"
+const API_URL = "https://powerful-caverns-14334.herokuapp.com/api/posts/"
 
 const getPublicContent = () => {
     return axios.get(API_URL);
@@ -51,7 +51,7 @@ const postComment = (id, comment, author) => {
 //delete comment 
 
 const deleteComment = (id) => {
-    return axios.delete("http://localhost:5000/api/comments/"+id, { headers: authHeader() })
+    return axios.delete("https://powerful-caverns-14334.herokuapp.com/api/comments/"+id, { headers: authHeader() })
 }
 
 

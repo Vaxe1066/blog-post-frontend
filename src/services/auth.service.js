@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth/";
+const API_URL = "https://powerful-caverns-14334.herokuapp.com/api/auth/";
 
 const register = (firstname, lastname, username, password) => {
     return axios.post(API_URL + "signup", {
