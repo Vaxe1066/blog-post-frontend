@@ -27,6 +27,11 @@ const postPostContent = (author, title, blog) => {
       });
 }
 
+//delete post 
+const deletePost = (id) => {
+    return axios.delete("https://powerful-caverns-14334.herokuapp.com/api/posts/"+id, { headers: authHeader() })
+}
+
 
 // get comments data 
 const getComments = (id) => {
@@ -62,5 +67,6 @@ export default {
     postPostContent,
     getComments,
     postComment,
-    deleteComment
+    deleteComment,
+    deletePost
   };
