@@ -18,7 +18,7 @@ const postPostContent = (author, title, blog) => {
         author,
         blog,
         title,
-    })
+    }, { headers: authHeader() })
     .then(function (response) {
         console.log(response);
       })
@@ -38,7 +38,7 @@ const postComment = (id, comment, author) => {
     return axios.post(API_URL+id+"/comments", {
         comment,
         author,
-    })
+    }, { headers: authHeader() })
     .then(function (response) {
         console.log(response);
       })
@@ -51,7 +51,7 @@ const postComment = (id, comment, author) => {
 //delete comment 
 
 const deleteComment = (id) => {
-    return axios.delete("http://localhost:5000/api/comments/"+id)
+    return axios.delete("http://localhost:5000/api/comments/"+id, { headers: authHeader() })
 }
 
 
